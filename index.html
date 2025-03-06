@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einkaufsliste</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome für Symbole -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <!-- Icon -->
+    <!-- Icon by de.pngtree.com -->
+    <link rel="icon" type="image/png" href="Grafiken/icon.png">
+    <!-- CSS -->
+    <link href="CSS/Styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5 mb-5">
+        <div class="text-center mb-4">
+            <h1 class="display-4 text-dark font-weight-bold">Meine Einkaufsliste</h1>
+            <p class="lead text-muted">Verwalte deine Einkäufe effizient und behalte den Überblick.</p>
+        </div>
+
+        <!-- Eingabebereich -->
+        <div class="row mb-4">
+            <div class="col-md-8 offset-md-2">
+                <div class="input-group shadow-sm rounded-lg">
+                    <input type="number" class="form-control rounded-left" id="item-quantity" placeholder="Stückzahl" step="1" min="1" max="100" required>
+                    <input type="text" class="form-control" id="item-name" placeholder="Artikelname" required>
+                    <input type="number" class="form-control rounded-right" id="item-price" placeholder="Preis" step="0.01" min="0.01" max="10000.00" required>                    
+                    <!-- Bootstrap Button mit Hover- und Active-Effekten -->
+                    <button class="btn btn-success rounded ml-2 btn-hover" id="add-item">
+                        <i class="fas fa-plus"></i> Hinzufügen
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Einkaufsliste -->
+        <div class="list-group shadow-sm rounded-lg p-2" id="item-list">
+            <!-- Liste wird hier durch JavaScript befüllt -->
+        </div>
+
+        <!-- Gesamtpreis Bereich -->
+        <div class="outer-price-container d-flex justify-content-end mt-4">
+            <!-- Innerer Preis Container -->
+            <div class="inner-price-container">
+                <span id="total-price" class="font-weight-bold text-success" style="font-size: 1.2rem;">0.00€</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS und Popper.js (notwendig für einige Bootstrap-Komponenten) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Dein JS-Code -->
+    <script src="JS/Code.js"></script>
+</body>
+
+</html>

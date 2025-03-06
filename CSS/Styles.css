@@ -1,0 +1,11 @@
+/* Hintergrundfarbe der Seite */
+body {
+    background-color: #d3d3d3;
+}
+
+.container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Weiches Box-Schattieren */
+    padding: 30px;
+}
