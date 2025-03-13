@@ -33,24 +33,26 @@ document.addEventListener("DOMContentLoaded", () => {
             let total = 0; // Variable für den Gesamtpreis
             this.items.forEach((item, index) => {
                 const li = document.createElement("li");
+                li.classList.add("mb-2"); // Bootstrap-Klasse für Abstand zwischen den Listenelementen
                 // Erstellen eines Listenelements für jedes Item
                 const itemNameSpan = document.createElement("span");
                 itemNameSpan.textContent = `${item.quantity} x ${item.name} - ${item.price.toFixed(2)}€`; // Zeigt Produktinformationen an
                 li.appendChild(itemNameSpan); // Füge die Produktinformationen hinzu
-
+        
                 // Buttons für Markieren und Löschen
                 li.innerHTML += `
                     <div class="btn-group" role="group">
                         <button class="btn btn-sm btn-warning toggle mr-1 ml-1 rounded" data-index="${index}">${item.bought ? 'Durchstreichen' : 'Markieren'}</button>
                         <button class="btn btn-sm btn-danger delete ml-1 rounded" data-index="${index}">Löschen</button>
                     </div>`;
-
+        
                 this.itemList.appendChild(li); // Füge das Listenelement zur Liste hinzu
                 total += item.price * item.quantity; // Berechne den Gesamtpreis
             });
             this.totalPrice.innerText = `Gesamt: ${total.toFixed(2)}€`; // Zeige den Gesamtpreis an
             this.saveToLocalStorage(); // Speichern der Liste im Local Storage
         }
+        
 
         // Fügt ein neues Item zur Liste hinzu
         addItem() {
