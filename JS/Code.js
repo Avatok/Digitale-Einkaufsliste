@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Buttons für Markieren und Löschen
                 li.innerHTML += `
                     <div class="btn-group" role="group">
-                        <button class="btn btn-sm btn-warning toggle" data-index="${index}">${item.bought ? 'Durchstreichen' : 'Markieren'}</button>
-                        <button class="btn btn-sm btn-danger delete" data-index="${index}">Löschen</button>
+                        <button class="btn btn-sm btn-warning toggle mr-1 ml-1 rounded" data-index="${index}">${item.bought ? 'Durchstreichen' : 'Markieren'}</button>
+                        <button class="btn btn-sm btn-danger delete ml-1 rounded" data-index="${index}">Löschen</button>
                     </div>`;
 
                 this.itemList.appendChild(li); // Füge das Listenelement zur Liste hinzu
