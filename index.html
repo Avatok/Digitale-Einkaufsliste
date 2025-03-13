@@ -17,6 +17,27 @@
 </head>
 
 <body>
+    <!-- Navbar innerhalb eines Containers -->
+    <div class="container mt-4">
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm rounded-lg">
+            <a class="navbar-brand" href="#">Meine Einkaufsliste</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Einkaufsliste</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="subpages/shops.html">Shops in der Nähe</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hauptinhalt -->
     <div class="container mt-5 mb-5">
         <div class="text-center mb-4">
             <h1 class="display-4 text-dark font-weight-bold">Meine Einkaufsliste</h1>
@@ -51,7 +72,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Einkaufsliste -->
         <div class="list-group shadow-sm rounded-lg p-2" id="item-list">
             <!-- Liste wird hier durch JavaScript befüllt -->
@@ -71,7 +92,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Einkaufsliste JS-Code -->
-    <script src="JS/Code.js"></script>
+    <script src="JS/Index.js"></script>
 </body>
 
 </html>
