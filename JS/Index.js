@@ -41,22 +41,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Erstellen eines Listenelements für jedes Item
                 const itemNameSpan = document.createElement("span");
                 itemNameSpan.textContent = `${item.quantity} x ${item.name} - ${item.price.toFixed(2)}€`; // Zeigt Produktinformationen an
+                
+                // Füge das Durchstreichen hinzu, wenn das Item gekauft wurde
+                if (item.bought) {
+                    itemNameSpan.style.textDecoration = "line-through";
+                }
+        
                 li.appendChild(itemNameSpan); // Füge die Produktinformationen hinzu
         
-                // Buttons für Markieren und Löschen
-                li.innerHTML += `
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-sm btn-warning toggle mr-1 ml-1 rounded" data-index="${index}">${item.bought ? 'Durchstreichen' : 'Markieren'}</button>
-                        <button class="btn btn-sm btn-danger delete ml-1 rounded" data-index="${index}">Löschen</button>
-                    </div>`;
+                // Buttons für Markieren und Löschen mit Inline-Styles für den Abstand
+                li.innerHTML += ` 
+                <div class="btn-group" role="group">
+                    <button class="btn btn-sm btn-warning toggle rounded" style="margin-right: 5px; margin-left: 5px;" data-index="${index}">
+                        ${item.bought ? 'Nicht Durchstreichen' : 'Durchstreichen'}
+                    </button>
+                    <button class="btn btn-sm btn-danger delete rounded" style="margin-left: 5px;" data-index="${index}">Löschen</button>
+                </div>
+                `;
         
                 this.itemList.appendChild(li); // Füge das Listenelement zur Liste hinzu
-                total += item.price * item.quantity; // Berechne den Gesamtpreis
+                
+                // Berechne nur den Preis der nicht gekauften Items
+                if (!item.bought) {
+                    total += item.price * item.quantity; // Berechne den Gesamtpreis nur für nicht gekaufte Items
+                }
             });
             this.totalPrice.innerText = `Gesamt: ${total.toFixed(2)}€`; // Zeige den Gesamtpreis an
             this.saveToLocalStorage(); // Speichern der Liste im Local Storage
         }
-
+        
         // Fügt ein neues Item zur Liste hinzu
         addItem() {
             const name = this.itemName.value.trim(); // Hole den Produktnamen
