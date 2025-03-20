@@ -17,8 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
             this.itemName = document.getElementById("item-name"); // Eingabefeld für Produktname
             this.itemQuantity = document.getElementById("item-quantity"); // Eingabefeld für Menge
             this.itemPrice = document.getElementById("item-price"); // Eingabefeld für Preis
-            this.addItemBtn = document.getElementById("add-item"); // Button zum Hinzufügen von Items
-            this.addItemBtn.addEventListener("click", () => this.addItem()); // Event-Listener für den Button
+            this.addItemBtns = document.querySelectorAll(".add-item-btn"); // Alle Buttons mit der Klasse "add-item-btn"
+            
+            // Event-Listener für alle "Hinzufügen"-Buttons
+            this.addItemBtns.forEach(button => {
+                button.addEventListener("click", () => this.addItem());
+            });
             this.updateList(); // Initiale Aktualisierung der Liste
         }
 
@@ -52,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
             this.totalPrice.innerText = `Gesamt: ${total.toFixed(2)}€`; // Zeige den Gesamtpreis an
             this.saveToLocalStorage(); // Speichern der Liste im Local Storage
         }
-        
 
         // Fügt ein neues Item zur Liste hinzu
         addItem() {
